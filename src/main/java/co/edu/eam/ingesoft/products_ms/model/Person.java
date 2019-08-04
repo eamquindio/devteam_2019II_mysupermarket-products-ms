@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.stores_ms.model;
+package co.edu.eam.ingesoft.products_ms.model;
 
 import java.io.Serializable;
 
