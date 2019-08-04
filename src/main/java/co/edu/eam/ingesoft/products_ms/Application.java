@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package co.edu.eam.ingesoft.stores_ms;
+package co.edu.eam.ingesoft.products_ms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
