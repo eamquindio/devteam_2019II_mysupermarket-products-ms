@@ -13,12 +13,12 @@ public class Products implements Serializable {
 	
 	private String name;
 	
-	private Long lat;
+	private Double price;
 	
-	private Long lng;
+	private String description;
 	
-	private String dscripcion;
-
+	private String category;
+	
 	public String getId() {
 		return id;
 	}
@@ -35,29 +35,30 @@ public class Products implements Serializable {
 		this.name = name;
 	}
 
-	public Long getLat() {
-		return lat;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setLat(Long lat) {
-		this.lat = lat;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
-	public Long getLng() {
-		return lng;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setLng(Long lng) {
-		this.lng = lng;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getDscripcion() {
-		return dscripcion;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setDscripcion(String dscripcion) {
-		this.dscripcion = dscripcion;
+	public void setCategory(String category) {
+		this.category = category;
 	}
+
 	
 	
 }
