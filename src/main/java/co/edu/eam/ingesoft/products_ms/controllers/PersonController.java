@@ -43,7 +43,7 @@ public class PersonController {
 		personService.create(person);
 	}
     
-    @GetMapping(value="/find_by_name")
+    @GetMapping(value="/find_by_name/")
 	public List<Person> findByName(@RequestParam String name) {
     	System.out.println(name);
     	return personService.findByName(name);

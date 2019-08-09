@@ -1,7 +1,5 @@
 package co.edu.eam.ingesoft.products_ms.services;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import co.edu.eam.ingesoft.products_ms.model.Products;
@@ -12,7 +10,14 @@ public class ProductsService {
 
 	@Autowired
 	private ProductsRepository productRepository;
-
+	
+	/**
+	 * method for delete product in the store
+	 * @param id take the id respective product to delete
+	 */
+	public void delete(String id) {
+		productRepository.deleteById(id);
+	}
 
 	/**
 	 * Metodo para crear un producto
@@ -26,7 +31,6 @@ public class ProductsService {
 	public void create(Products products){
 		productRepository.save(products);
 	}
-
 
 	public List<Products> listAll() {
 		return productRepository.findAll();
