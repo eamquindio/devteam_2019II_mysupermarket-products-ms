@@ -18,8 +18,14 @@ public class ProductsService {
 	public List<Products> listAll() {
 		return productRepository.findAll();
 	}
+
+	/**
+	 * 
+	 * @param name - this is used to list the search by name
+	 * @return
+	 */
 	public List<Products> findByName(String name) {
 		return productRepository.findByName(name);
 	}
-
+	
 }
