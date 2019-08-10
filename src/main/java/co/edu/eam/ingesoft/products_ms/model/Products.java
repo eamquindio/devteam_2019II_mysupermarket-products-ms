@@ -5,60 +5,108 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Person entity
+ *
+ * @author caferrerb
+ */
 @Entity
 public class Products implements Serializable {
 
-	@Id
-	private String id;
-	
-	private String name;
-	
-	private Double price;
-	
-	private String description;
-	
-	private String category;
-	
-	public String getId() {
-		return id;
-	}
+  /**
+   * id atribute.
+   */
+  @Id
+  private String id;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  /**
+   * name atribute.
+   */
+  private String name;
 
-	public String getName() {
-		return name;
-	}
+  /**
+   * price atribute.
+   */
+  private Double price;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  /**
+   * description atribute.
+   */
+  private String description;
 
-	public Double getPrice() {
-		return price;
-	}
+  /**
+   * category atribute.
+   */
+  private String category;
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+  /**
+   * @return the id
+   */
+  public final String getId() {
+    return id;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  /**
+   * @param id the id to set
+   */
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  /**
+   * @return the name
+   */
+  public final String getName() {
+    return name;
+  }
 
-	public String getCategory() {
-		return category;
-	}
+  /**
+   * @param name the name to set
+   */
+  public void setName(final String name) {
+    this.name = name;
+  }
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+  /**
+   * @return the price
+   */
+  public final Double getPrice() {
+    return price;
+  }
 
-	
-	
+  /**
+   * @param price the price to set
+   */
+  public void setPrice(final Double price) {
+    this.price = price;
+  }
+
+  /**
+   * @return the description
+   */
+  public final String getDescription() {
+    return description;
+  }
+
+  /**
+   * @param description the description to set
+   */
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  /**
+   * @return the category
+   */
+  public final String getCategory() {
+    return category;
+  }
+
+  /**
+   * @param category the category to set
+   */
+  public void setCategory(final String category) {
+    this.category = category;
+  }
+
 }
