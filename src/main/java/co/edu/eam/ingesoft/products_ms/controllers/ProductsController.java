@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
-
-@RequestMapping("api/products-ms/products")
 @RestController
+@RequestMapping("api/products-ms/products")
 public class ProductsController {
 	@Autowired
 	private ProductsService productsService;
-	@GetMapping(value="/all")
+
+	@GetMapping(value = "/all")
 	public List<Products> findAll() {
-    	return productsService.listAll();
+		return productsService.listAll();
 	}
 
 	@GetMapping(value = "/find_by_name")
@@ -28,4 +28,19 @@ public class ProductsController {
 		System.out.println(name);
 		return productsService.findByName(name);
 	}
+
+	/**
+	 * Metodo que llama al servicio realizado para crear un producto
+	 * 
+	 * @author Cristian Sinisterra Rivera<br/>
+	 *         email: cristiansinisterra@hotmail.com <br/>
+	 *         Fecha: 6/08/2019<br/>
+	 * @param products,
+	 *            que se desea crear
+	 */
+	@PostMapping(value = "/")
+	public void create(@RequestBody Products products) {
+		productsService.create(products);
+	}
+
 }
