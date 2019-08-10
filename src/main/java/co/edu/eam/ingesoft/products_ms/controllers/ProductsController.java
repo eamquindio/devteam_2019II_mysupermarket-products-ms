@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
-
 @RestController
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
@@ -36,7 +35,8 @@ public class ProductsController {
 	 * @author Cristian Sinisterra Rivera<br/>
 	 *         email: cristiansinisterra@hotmail.com <br/>
 	 *         Fecha: 6/08/2019<br/>
-	 * @param products
+	 * @param products,
+	 *            que se desea crear
 	 */
 	@PostMapping(value = "/")
 	public void create(@RequestBody Products products) {
