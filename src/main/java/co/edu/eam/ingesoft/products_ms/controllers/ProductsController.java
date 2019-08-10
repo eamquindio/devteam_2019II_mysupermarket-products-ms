@@ -12,7 +12,7 @@ public class ProductsController {
 	@Autowired
 	private ProductsService productsService;
 	
-	@GetMapping(value="/all")
+	@GetMapping(value= "/all")
 	public List<Products> findAll() {
 		return productsService.listAll();
 	}
@@ -21,6 +21,15 @@ public class ProductsController {
 	public void delete(@PathVariable String id) {
 		productsService.delete(id);
 	}
+	
+	
+	@GetMapping(value="/find_by_category")
+	public List<Products> findByCategory(@RequestParam String category) {
+	   System.out.println(category);
+	   return productsService.findByCategory(category);
+		}
+	    
+	  
 
 	@GetMapping(value = "/find_by_name")
 	public List<Products> findByName(@RequestParam String name) {

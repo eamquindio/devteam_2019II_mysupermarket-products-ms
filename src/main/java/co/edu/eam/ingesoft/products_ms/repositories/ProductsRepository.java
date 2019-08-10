@@ -7,5 +7,9 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 @Repository
 public interface ProductsRepository extends CrudRepository<Products, String> {
 	List<Products> findAll();
+	
 	List<Products> findByName(String name);
+
+	List<Products> findByCategory(String category);
+
 }
