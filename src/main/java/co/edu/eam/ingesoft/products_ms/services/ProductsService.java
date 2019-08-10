@@ -13,10 +13,10 @@ import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 public class ProductsService {
 	
 	@Autowired
-	private ProductsRepository storesRepository;
+	private ProductsRepository productRepository;
 	
 	public List<Products> listAll() {
-		return ProductsRespository.findAll();
+		return productRepository.findAll();
 	}
 
 }
