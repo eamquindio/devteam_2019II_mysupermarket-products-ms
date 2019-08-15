@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Person entity
+ * Person entity.
  *
  * @author caferrerb
  */

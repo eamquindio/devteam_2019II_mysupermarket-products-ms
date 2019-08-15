@@ -4,34 +4,55 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * Entity person.
+ *
+ * @author caferrerb
+ *
+ */
 @Entity
-public class Person implements Serializable{
-	
-	@Id
-	private Integer id;
-	
-	@Column(name = "name")
-	private String name;
+public class Person implements Serializable {
 
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
+  /**
+   * Entity Primary key.
+   */
+  @Id
+  private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+  /**
+   * Person`s name.
+   */
+  @Column(name = "name")
+  private String name;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	
+  /**
+   * @return the id
+   */
+  public final Integer getId() {
+    return id;
+  }
+
+  /**
+   * @param id the id to set
+   */
+  public final void setId(Integer id) {
+    this.id = id;
+  }
+
+  /**
+   * @return the name
+   */
+  public final String getName() {
+    return name;
+  }
+
+  /**
+   * @param name the name to set
+   */
+  public final void setName(String name) {
+    this.name = name;
+  }
+
 }
