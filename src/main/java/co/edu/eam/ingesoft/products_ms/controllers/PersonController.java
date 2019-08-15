@@ -16,41 +16,82 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Person;
 import co.edu.eam.ingesoft.products_ms.services.PersonService;
 
+/**
+ * REst controller for person entity.
+ *
+ * @author caferrerb
+ *
+ */
 @RestController
 @RequestMapping("api/stores-ms/person")
 public class PersonController {
 
-	@Autowired
-	private PersonService personService;
-	
-    @PostMapping(value="/")
-	public void create(@RequestBody Person person) {
-		personService.create(person);
-	}
-	
-    @GetMapping(value="/{id}")
-	public Person find(@PathVariable Integer id) {
-		return personService.find(id);
-	}
-    
-    @DeleteMapping(value="/{id}")
-	public void delete(@PathVariable Integer id) {
-    	personService.delete(id);
-	}
-    
-    @PutMapping(value="/")
-	public void edit(@RequestBody Person person) {
-		personService.create(person);
-	}
-    
-    @GetMapping(value="/find_by_name/")
-	public List<Person> findByName(@RequestParam String name) {
-    	System.out.println(name);
-    	return personService.findByName(name);
-	}
-    
-    @GetMapping(value="/all")
-	public List<Person> findAll() {
-    	return personService.listAll();
-	}
+  /**
+   * person service.
+   */
+  @Autowired
+  private PersonService personService;
+
+  /**
+   * create a person operation.
+   *
+   * @param person person to create
+   */
+  @PostMapping(value = "/")
+  public void create(@RequestBody Person person) {
+    personService.create(person);
+  }
+
+  /**
+   * find a person.
+   *
+   * @param id id for person to find
+   * @return person with id
+   */
+  @GetMapping(value = "/{id}")
+  public Person find(@PathVariable Integer id) {
+    return personService.find(id);
+  }
+
+  /**
+   * Delete a person.
+   *
+   * @param id id person to delete
+   */
+  @DeleteMapping(value = "/{id}")
+  public void delete(@PathVariable Integer id) {
+    personService.delete(id);
+  }
+
+  /**
+   * Edit a person.
+   *
+   * @param person perso to edit
+   */
+  @PutMapping(value = "/")
+  public void edit(@RequestBody Person person) {
+    personService.create(person);
+  }
+
+  /**
+   * find a person by name.
+   *
+   * @param name name person to find
+   * @return list of person with a name
+   */
+  @GetMapping(value = "/find_by_name")
+  public List<Person> findByName(@RequestParam String name) {
+    System.out.println(name);
+    return personService.findByName(name);
+  }
+
+  /**
+   * list all persons.
+   *
+   * @return list of all persons
+   */
+  @GetMapping(value = "/all")
+  public List<Person> findAll() {
+    return personService.listAll();
+  }
 }
