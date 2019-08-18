@@ -22,7 +22,6 @@ public class ProductsService {
 private ProductsRepository productRepository;
 
   /**
-<<<<<<< HEAD
  * Find all products.
  * @return list products.
  */
@@ -48,7 +47,6 @@ return productRepository.findAll();
     productRepository.save(product);
   }
 	/**
-<<<<<<< HEAD
 	   * List products by name.
 	   * 
 	   * @param name name to looking for
