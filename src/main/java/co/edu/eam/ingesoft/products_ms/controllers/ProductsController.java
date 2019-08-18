@@ -52,7 +52,6 @@ return productsService.findByCategory(category);
     productsService.update(product);
   }
 	/**
-<<<<<<< HEAD
 	   * find a product by name.
 	   *
 	   * @param name name product to find
