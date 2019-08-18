@@ -22,6 +22,7 @@ public class ProductsService {
 private ProductsRepository productRepository;
 
   /**
+<<<<<<< HEAD
  * Find all products.
  * @return list products.
  */
@@ -29,6 +30,15 @@ public List<Products> listAll() {
 return productRepository.findAll();
 }
 
+/**
+   * Method found by category.
+   *
+   * @param category data type String.
+   * @return by category the products.
+   */
+  public List<Products> findByCategory(String category) {
+    return productRepository.findByCategory(category);
+  }
   /**
    * Update a products.
    *
@@ -38,6 +48,7 @@ return productRepository.findAll();
     productRepository.save(product);
   }
 	/**
+<<<<<<< HEAD
 	   * List products by name.
 	   * 
 	   * @param name name to looking for

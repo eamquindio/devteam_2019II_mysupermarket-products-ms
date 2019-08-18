@@ -14,7 +14,16 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
+<<<<<<< HEAD
  * REst controller for products entity.
+=======
+ * Products controller.
+<<<<<<< HEAD
+=======
+ * 
+ * @author caferrerb
+>>>>>>> [resolves #6] create function list products find by name
+>>>>>>> [resolves #6] create function list products find by name
  *
  * @author caferrerb
  *
@@ -24,6 +33,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
+
   /**
    * products service.
    */
@@ -53,6 +63,7 @@ return productsService.findByCategory(category);
   }
 	/**
 	 * find a product by name.
+	 * 
 	 * @param name name product to find
 	 * @return list of product with a name
 	 */
