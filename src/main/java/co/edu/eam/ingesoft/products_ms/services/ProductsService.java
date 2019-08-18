@@ -10,7 +10,11 @@ public class ProductsService {
 
 	@Autowired
 	private ProductsRepository productRepository;
-	
+	/**
+	 * Method found by category
+	 * @param category,data type String
+	 * @return,by category the products
+	 */
 	public List<Products> findByCategory(String category) {
 		return productRepository.findByCategory(category);
 	}
