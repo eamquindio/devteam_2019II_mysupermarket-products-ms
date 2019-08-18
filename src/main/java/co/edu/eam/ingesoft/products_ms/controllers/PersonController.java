@@ -26,9 +26,9 @@ import co.edu.eam.ingesoft.products_ms.services.PersonService;
 @RequestMapping("api/stores-ms/person")
 public class PersonController {
 
-	/**
-	 * person service.
-	 */
+/**
+* person service.
+*/
 	@Autowired
 	private PersonService personService;
 
