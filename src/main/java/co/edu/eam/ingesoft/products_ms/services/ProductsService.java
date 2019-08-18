@@ -28,4 +28,21 @@ public List<Products> listAll() {
 return productRepository.findAll();
 }
 
+  /**
+   * Update a products.
+   *
+   * @param product product to update.
+   */
+  public void update(Products product) {
+    productRepository.save(product);
+  }
+	/**
+	   * List products by name.
+	   *
+	   * @param name name to looking for
+	   * @return list of products with a name.
+	   */
+	  public List<Products> findByName(String name) {
+	    return productRepository.findByName(name);
+	  }
 }
