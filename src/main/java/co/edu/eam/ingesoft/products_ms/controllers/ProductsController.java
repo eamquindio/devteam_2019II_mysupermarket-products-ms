@@ -42,7 +42,6 @@ return productsService.listAll();
 }
 	/**
 	   * find a product by name.
-	   *
 	   * @param name name product to find
 	   * @return list of product with a name
 	   */
