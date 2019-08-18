@@ -24,7 +24,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
-
   /**
    * products service.
    */
