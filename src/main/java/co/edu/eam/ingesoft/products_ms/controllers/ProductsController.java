@@ -51,6 +51,11 @@ return productsService.findByCategory(category);
   public void edit(@RequestBody Products product) {
     productsService.update(product);
   }
+/**
+* find a product by name.
+* @param name name product to find
+* @return list of product with a name
+*/
 	@GetMapping(value = "/find_by_name")
 	public List<Products> findByName(@RequestParam String name) {
 		System.out.println(name);

@@ -13,6 +13,7 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
  */
 @Repository
 public interface ProductsRepository extends CrudRepository<Products, String> {
+
 /**
   * Find all persons.
   * @return list or persons.
