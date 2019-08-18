@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
@@ -21,7 +19,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * @author caferrerb
  *
  */
-
 @RestController
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
@@ -30,7 +27,6 @@ public class ProductsController {
    */
   @Autowired
   private ProductsService productsService;
-
   /**
    * list all products.
    *
