@@ -38,6 +38,7 @@ return productRepository.findAll();
   }
 	/**
 	   * List products by name.
+	   * 
 	   * @param name name to looking for
 	   * @return list of products with a name.
 	   */
