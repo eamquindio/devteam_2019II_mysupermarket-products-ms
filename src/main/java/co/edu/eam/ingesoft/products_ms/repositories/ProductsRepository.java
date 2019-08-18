@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 
 /**
+<<<<<<< HEAD
+=======
+ * Product repository.
+>>>>>>> [resolves #6] create function list products find by name
  * @author caferrerb
  *
  */
@@ -23,7 +27,6 @@ List<Products> findAll();
  * @return the products by their category.
  */
 List<Products> findByCategory(String category);
-
 	/**
 	   * Find all products given a name.
 	   * @param name name to look for.
