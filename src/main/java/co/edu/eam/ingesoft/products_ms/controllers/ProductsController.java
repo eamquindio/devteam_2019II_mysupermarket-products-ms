@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +39,24 @@ private ProductsService productsService;
 public List<Products> findAll() {
 return productsService.listAll();
 }
+
+@GetMapping(value = "/find_by_category")
+public List<Products> findByCategory(@RequestParam String category) {
+return productsService.findByCategory(category);
+}
+
+ /**
+   * Edit a products.
+   *
+   * @param product product to edit
+   */
+  @PutMapping(value = "/")
+  public void edit(@RequestBody Products product) {
+    productsService.update(product);
+  }
 	/**
 	   * find a product by name.
-	   * 
+	   *
 	   * @param name name product to find
 	   * @return list of product with a name
 	   */
