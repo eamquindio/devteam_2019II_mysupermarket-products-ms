@@ -9,8 +9,6 @@ import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
  * Bussiness class for product Entity.
  * @author caferrerb
  * @author caferrerb.
-
- *
  */
 @Service
 public class ProductsService {
@@ -55,7 +53,6 @@ public class ProductsService {
 
   /**
    * Delete a product.
-   *
    * @param id id to delete
    */
   public void delete(String id) {
@@ -64,10 +61,9 @@ public class ProductsService {
 
   /**
    * Metodo para crear un producto.
-   * 
-   * @author Cristian Sinisterra Rivera.br/>
-   *         email: cristiansinisterra@hotmail.com.<br/>
-   *         Fecha: 6/08/2019<br/>
+   * @author Cristian Sinisterra Rivera.<br/>
+   * email: cristiansinisterra@hotmail.com<br/>
+   * Fecha: 6/08/2019<br/>
    * @param products producto que se desea crear.
    */
   public void create(Products products) {

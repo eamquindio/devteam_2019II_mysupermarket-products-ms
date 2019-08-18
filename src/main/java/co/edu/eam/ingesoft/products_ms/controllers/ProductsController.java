@@ -30,6 +30,7 @@ public class ProductsController {
   @Autowired
   private ProductsService productsService;
   /**
+<<<<<<< HEAD
    * list all products.
    *
    * @return list of all products.
@@ -43,6 +44,13 @@ public class ProductsController {
    *
    * @param category category
    * @return list to products
+=======
+   * Metodo que llama al servicio realizado para crear un producto
+   * @author Cristian Sinisterra Rivera<br/>
+   * email: cristiansinisterra@hotmail.com<br/>
+   * Fecha: 6/08/2019<br/>
+   * @param products
+>>>>>>> [resolves #11] check test
    */
   @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
