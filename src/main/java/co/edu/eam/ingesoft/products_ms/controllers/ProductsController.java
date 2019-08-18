@@ -14,8 +14,12 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
+<<<<<<< HEAD
  * REst controller for products entity. Products controller.
  *
+=======
+ * Products controller.
+>>>>>>> [resolves #9] create code of delete
  * @author caferrerb
  */
 
@@ -24,6 +28,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
 
+<<<<<<< HEAD
   /**
    * products service.
    */
@@ -60,6 +65,21 @@ public class ProductsController {
   public void edit(@RequestBody Products product) {
     productsService.update(product);
   }
+=======
+	/**
+	 * product service.
+	 */
+	@Autowired
+	private ProductsService productsService;
+
+	/**
+	 * @param id id product to delete
+	 */
+	@DeleteMapping(value = "/{id}")
+	public void delete(@PathVariable String id) {
+		productsService.delete(id);
+	}
+>>>>>>> [resolves #9] create code of delete
 
   /**
    * Method found by name.

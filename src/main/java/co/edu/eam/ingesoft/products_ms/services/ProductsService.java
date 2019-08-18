@@ -7,10 +7,13 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 
 /**
+<<<<<<< HEAD
  * Service to perform bussines operations over Products entity.
  *
+=======
+ * Bussiness class for product Entity.
+>>>>>>> [resolves #9] create code of delete
  * @author caferrerb
- *
  */
 
 @Service
@@ -51,10 +54,15 @@ public class ProductsService {
   }
 
   /**
+<<<<<<< HEAD
    * List products by name.
    *
    * @param name name to looking for
    * @return list of products with a name.
+=======
+   * Delete a product
+   * @param id id to delete
+>>>>>>> [resolves #9] create code of delete
    */
   public List<Products> findByName(String name) {
     return productRepository.findByName(name);
