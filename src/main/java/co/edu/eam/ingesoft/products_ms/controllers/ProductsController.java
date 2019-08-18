@@ -29,7 +29,6 @@ public class ProductsController {
    */
 @Autowired
 private ProductsService productsService;
-
   /**
    * list all products.
    *
@@ -53,14 +52,15 @@ return productsService.findByCategory(category);
     productsService.update(product);
   }
 	/**
+<<<<<<< HEAD
 	   * find a product by name.
 	   *
 	   * @param name name product to find
 	   * @return list of product with a name
 	   */
-	  @GetMapping(value = "/find_by_name")
-	  public List<Products> findByName(@RequestParam String name) {
-	    System.out.println(name);
+	@GetMapping(value = "/find_by_name")
+	public List<Products> findByName(@RequestParam String name) {
+		System.out.println(name);
 		return productsService.findByName(name);
 	  }
 }
