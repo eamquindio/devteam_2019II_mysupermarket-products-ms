@@ -21,7 +21,6 @@ public class ProductsService {
   @Autowired
   private ProductsRepository productRepository;
   /**
-<<<<<<< HEAD
    * Find all products.
    *
    * @return list products.
@@ -52,16 +51,11 @@ public class ProductsService {
    * @param name name to looking for
    * @return list of products with a name.
    * Delete a product
-   * 
-=======
-   * Delete a product.
->>>>>>> [resolves #9] create code of delete
    * @param id id to delete
    */
   public List<Products> findByName(String name) {
     return productRepository.findByName(name);
   }
-  
   /**
    * Delete a person.
    *
