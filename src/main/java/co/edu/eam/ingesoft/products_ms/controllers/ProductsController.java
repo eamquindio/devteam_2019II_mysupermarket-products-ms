@@ -24,6 +24,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
+
   /**
    * products service.
    */
@@ -51,15 +52,10 @@ return productsService.findByCategory(category);
   public void edit(@RequestBody Products product) {
     productsService.update(product);
   }
-/**
-* find a product by name.
-* @param name name product to find
-* @return list of product with a name
-*/
-	@GetMapping(value = "/find_by_name")
-	public List<Products> findByName(@RequestParam String name) {
-		System.out.println(name);
-		return productsService.findByName(name);
-	  }
+@GetMapping(value = "/find_by_name")
+public List<Products> findByName(@RequestParam String name) {
+System.out.println(name);
+return productsService.findByName(name);
+}
 }
 

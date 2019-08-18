@@ -15,6 +15,7 @@ import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 
 @Service
 public class ProductsService {
+
   /**
    * Products repository.
    */
@@ -46,13 +47,12 @@ return productRepository.findAll();
   public void update(Products product) {
     productRepository.save(product);
   }
-	/**
-	   * List products by name.
-	   * 
-	   * @param name name to looking for
-	   * @return list of products with a name.
-	   */
-	  public List<Products> findByName(String name) {
-	    return productRepository.findByName(name);
-	  }
+/**
+* List products by name.
+* @param name name to looking for
+* @return list of products with a name.
+*/
+public List<Products> findByName(String name) {
+return productRepository.findByName(name);
+}
 }
