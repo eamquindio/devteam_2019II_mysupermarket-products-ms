@@ -18,7 +18,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * REst controller for products entity. Products controller.
  *
  * Products controller.
- * 
  * @author caferrerb
  *
  */
@@ -61,7 +60,6 @@ public class ProductsController {
     productsService.update(product);
   }
 	/**
-	 * 
 	 * @param id id product to delete
 	 */
 	@DeleteMapping(value = "/{id}")
