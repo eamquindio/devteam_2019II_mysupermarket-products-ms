@@ -44,10 +44,8 @@ return productsService.listAll();
 public List<Products> findByCategory(@RequestParam String category) {
 return productsService.findByCategory(category);
 }
-
- /**
+  /**
    * Edit a products.
-   *
    * @param product product to edit
    */
   @PutMapping(value = "/")
