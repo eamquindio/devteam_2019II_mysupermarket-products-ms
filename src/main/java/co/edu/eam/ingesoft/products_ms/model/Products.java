@@ -1,4 +1,4 @@
-ackage co.edu.eam.ingesoft.products_ms.model;
+package co.edu.eam.ingesoft.products_ms.model;
 
 import java.io.Serializable;
 
@@ -110,3 +110,4 @@ this.category = category;
 }
 
 }
+
