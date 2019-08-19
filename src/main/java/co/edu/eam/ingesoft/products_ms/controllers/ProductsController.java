@@ -30,10 +30,10 @@ public class ProductsController {
   @Autowired
   private ProductsService productsService;
   /**
-   * list all products.
-   *
-   * @return list of all products.
-   */
+ * list all products.
+ *
+ * @return list of all products.
+ */
   @GetMapping(value = "/all")
   public List<Products> findAll() {
     return productsService.listAll();
@@ -75,6 +75,7 @@ public class ProductsController {
     System.out.println(name);
     return productsService.findByName(name);
   }
+
 /**
 * Metodo que llama al servicio realizado para crear un producto.
 * @author Cristian Sinisterra Rivera.<br/>
