@@ -65,6 +65,14 @@ public class ProductsService {
    * email: cristiansinisterra@hotmail.com<br/>
    * Fecha: 6/08/2019<br/>
    * @param products producto que se desea crear.
+=======
+   * Metodo para crear un producto
+   * @author Cristian Sinisterra Rivera<br/>
+   * email: cristiansinisterra@hotmail.com <br/>
+   * Fecha: 6/08/2019<br/>
+   * @param products
+   * producto que se desea crear
+>>>>>>> [resolves #11] style
    */
   public void create(Products products) {
     productRepository.save(products);
