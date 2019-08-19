@@ -7,7 +7,6 @@ import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 /**
  * Service to perform bussines operations over Products entity.
  * Bussiness class for product Entity.
- * @author caferrerb
  * @author caferrerb.
  */
 @Service
