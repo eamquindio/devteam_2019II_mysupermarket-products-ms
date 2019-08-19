@@ -41,8 +41,7 @@ public class ProductsService {
    *
    * @param product product to update.
    */
-  public void update(Products products) {
-    productRepository.save(products);
-
+  public void update(Products product) {
+    productRepository.save(product);
   }
 }

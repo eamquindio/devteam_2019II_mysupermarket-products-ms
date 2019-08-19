@@ -1,4 +1,5 @@
 package co.edu.eam.ingesoft.products_ms.controllers;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,24 +25,25 @@ public class ProductsController {
   /**
    * product service.
    */
-@Autowired
+  @Autowired
   private ProductsService productsService;
 
-/**
- * Method found by category.
- * @param category data type String.
- * @return by category the products.
- */
-@GetMapping(value = "/find_by_category")
+  /**
+   * Method found by category.
+   * 
+   * @param category data type String.
+   * @return by category the products.
+   */
+  @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
     return productsService.findByCategory(category);
- }
+  }
 
-/**
- * Edit a products.
- *
- * @param product product to edit
- */
+  /**
+   * Edit a products.
+   *
+   * @param product product to edit
+   */
   @PutMapping(value = "/")
   public void edit(@RequestBody Products products) {
     productsService.update(products);
