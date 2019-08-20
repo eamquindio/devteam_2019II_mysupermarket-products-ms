@@ -8,10 +8,10 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 public class ProductsController {
 	@Autowired
 	private ProductsService productsService;
-	// value find_by_category
+	
 	@GetMapping(value="/find_by_category")
 		public List<Products> findByCategory(@RequestParam String category) {
-		   System.out.println(category);//print on screen the category
+		   System.out.println(category);
 		   return productsService.findByCategory(category);
 			}	
 }

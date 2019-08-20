@@ -4,8 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 public interface ProductsRepository extends CrudRepository<Products, String> {
 	/**
-	 *  Method that list the products by category
-	 * @param category, data type String 
+	 *  Method that list the products by category.
+	 * @param category, data type String. 
 	 * @return, the products by their category.
 	 */
 	List<Products> findByCategory(String category);
