@@ -17,7 +17,7 @@ public class ProductsController {
   @Autowired
   private ProductsService productsService;
 
-  @GetMapping(value="/find_by_category")
+  @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
     return productsService.findByCategory(category);
  }

@@ -12,7 +12,7 @@ public class ProductsService {
 
 @Autowired
 private ProductsRepository productRepository;
- /*
+ /**
  * Method found by category.
  * category data type String.
  * return by category the products.
