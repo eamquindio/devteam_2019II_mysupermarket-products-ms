@@ -8,15 +8,16 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 
 @Service
-public class ProductsService{
-  @Autowired
+public class ProductsService {
+
+@Autowired
 private ProductsRepository productRepository;
-	/*
-	 * Method found by category.
-	 * category data type String.
-	 * return by category the products.
-	 */
-public List<Products> findByCategory(String category){
-		return productRepository.findByCategory(category);
-	}
+ /*
+ * Method found by category.
+ * category data type String.
+ * return by category the products.
+ */
+  public List<Products> findByCategory(String category) {
+    return productRepository.findByCategory(category);
+  }
 }
