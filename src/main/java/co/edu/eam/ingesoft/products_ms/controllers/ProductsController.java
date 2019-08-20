@@ -30,7 +30,7 @@ public class ProductsController {
 
   /**
    * Method found by category.
-   * 
+   *
    * @param category data type String.
    * @return by category the products.
    */
@@ -45,8 +45,8 @@ public class ProductsController {
    * @param product product to edit
    */
   @PutMapping(value = "/")
-  public void edit(@RequestBody Products products) {
-    productsService.update(products);
+  public void edit(@RequestBody Products product) {
+    productsService.update(product);
   }
 
 }
