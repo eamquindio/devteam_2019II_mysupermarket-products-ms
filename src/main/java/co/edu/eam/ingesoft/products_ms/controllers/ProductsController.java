@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
-
+/**
+ * Products controller.
+ * @author caferrerb
+ */
 @RestController
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
