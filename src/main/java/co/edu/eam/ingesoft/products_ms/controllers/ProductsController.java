@@ -17,9 +17,17 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 @RestController
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
+  /**
+   * product service.
+   */
 @Autowired
   private ProductsService productsService;
 
+/**
+ * Method found by category.
+ * @param category data type String.
+ * @return by category the products.
+ */
 @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
     return productsService.findByCategory(category);

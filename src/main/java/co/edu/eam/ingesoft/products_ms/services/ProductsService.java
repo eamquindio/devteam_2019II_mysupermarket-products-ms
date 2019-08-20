@@ -14,7 +14,9 @@ import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
  */
 @Service
 public class ProductsService {
-
+  /**
+   * product repository.
+   */
 @Autowired
 private ProductsRepository productRepository;
  /**
