@@ -2,7 +2,11 @@ package co.edu.eam.ingesoft.products_ms.services;
 import java.util.List;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
-
+/**
+ * 
+ * @author juan
+ *
+ */
 public class ProductsService {
 
 	private ProductsRepository productRepository;
