@@ -17,10 +17,10 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 @RestController
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
-  @Autowired
+@Autowired
   private ProductsService productsService;
 
-  @GetMapping(value = "/find_by_category")
+@GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
     return productsService.findByCategory(category);
  }

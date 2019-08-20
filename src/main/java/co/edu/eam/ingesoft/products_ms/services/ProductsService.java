@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
-
 /**
  * Bussiness class for product Entity.
  *
@@ -20,7 +19,6 @@ public class ProductsService {
 private ProductsRepository productRepository;
  /**
  * Method found by category.
- * 
  * @param category data type String.
  * @return by category the products.
  */
