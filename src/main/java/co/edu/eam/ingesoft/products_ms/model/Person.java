@@ -27,6 +27,15 @@ public class Person implements Serializable {
   @Column(name = "name")
   private String name;
 
+  public Person() {
+  }
+
+  public Person(Integer id, String name) {
+    super();
+    this.id = id;
+    this.name = name;
+  }
+
   /**
    * @return the id
    */

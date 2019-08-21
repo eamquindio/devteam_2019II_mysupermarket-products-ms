@@ -39,6 +39,27 @@ public class Products implements Serializable {
    */
   private String category;
 
+  public Products() {
+  }
+
+
+  /**
+   * @param id
+   * @param name
+   * @param price
+   * @param description
+   * @param category
+   */
+  public Products(String id, String name, Double price, String description, String category) {
+    super();
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.category = category;
+  }
+
+
   /**
    * @return the id
    */
