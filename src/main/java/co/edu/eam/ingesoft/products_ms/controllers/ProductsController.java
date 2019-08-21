@@ -16,18 +16,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 /**
  * REst controller for products entity.
  * Products controller.
-<<<<<<< HEAD
-<<<<<<< HEAD
- * 
-=======
-<<<<<<< HEAD
-=======
- * @author caferrerb
->>>>>>> [resolves #6] create function list products find by name
- *
->>>>>>> [resolves #6] create function list products find by name
-=======
->>>>>>> [resolves #6] resolve conflicts
  * @author caferrerb
  */
 
