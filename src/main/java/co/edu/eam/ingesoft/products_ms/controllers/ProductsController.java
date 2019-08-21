@@ -1,52 +1,41 @@
 package co.edu.eam.ingesoft.products_ms.controllers;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
- * Products controller.
+ * REst controller for products entity.
  *
  * @author caferrerb
+ *
  */
+
 @RestController
+
 @RequestMapping("api/products-ms/products")
 public class ProductsController {
-  /**
-   * product service.
-   */
-  @Autowired
-  private ProductsService productsService;
 
   /**
-   * Method found by category.
-   *
-   * @param category data type String.
-   * @return by category the products.
+   * products service.
    */
-  @GetMapping(value = "/find_by_category")
-  public List<Products> findByCategory(@RequestParam String category) {
-    return productsService.findByCategory(category);
-  }
+@Autowired
+private ProductsService productsService;
 
   /**
-   * Edit a products.
+   * list all products.
    *
-   * @param product product to edit
+   * @return list of all products
    */
-  @PutMapping(value = "/")
-  public void edit(@RequestBody Products product) {
-    productsService.update(product);
-  }
+@GetMapping(value = "/all")
+public List<Products> findAll() {
+return productsService.listAll();
+}
 
 }
+
