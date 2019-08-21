@@ -17,6 +17,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * REst controller for products entity.
  * Products controller.
 <<<<<<< HEAD
+<<<<<<< HEAD
  * 
 =======
 <<<<<<< HEAD
@@ -25,6 +26,8 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 >>>>>>> [resolves #6] create function list products find by name
  *
 >>>>>>> [resolves #6] create function list products find by name
+=======
+>>>>>>> [resolves #6] resolve conflicts
  * @author caferrerb
  */
 
@@ -60,6 +63,11 @@ return productsService.findByCategory(category);
   public void edit(@RequestBody Products product) {
     productsService.update(product);
   }
+/**
+* Method found by name.
+* @param name
+* @return
+*/
 @GetMapping(value = "/find_by_name")
 public List<Products> findByName(@RequestParam String name) {
 System.out.println(name);

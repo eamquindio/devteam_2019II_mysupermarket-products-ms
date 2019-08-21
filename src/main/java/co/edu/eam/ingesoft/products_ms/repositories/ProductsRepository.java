@@ -1,6 +1,5 @@
 package co.edu.eam.ingesoft.products_ms.repositories;
 import java.util.List;
-import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -25,11 +24,11 @@ List<Products> findAll();
  * @return the products by their category.
  */
 List<Products> findByCategory(String category);
-	/**
-	   * Find all products given a name.
-	   * @param name name to look for.
-	   * @return list or products.
-	   */
-	  List<Products> findByName(String name);
+/**
+* Find all products given a name.
+* @param name name to look for.
+* @return list or products.
+*/
+List<Products> findByName(String name);
 }
 
