@@ -65,8 +65,8 @@ return productsService.findByCategory(category);
   }
 /**
 * Method found by name.
-* @param name
-* @return
+* @param name name
+* @return list of products
 */
 @GetMapping(value = "/find_by_name")
 public List<Products> findByName(@RequestParam String name) {
