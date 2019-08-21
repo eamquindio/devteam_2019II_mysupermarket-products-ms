@@ -38,7 +38,11 @@ private ProductsService productsService;
 public List<Products> findAll() {
 return productsService.listAll();
 }
-
+/**
+ * 
+ * @param category category
+ * @return list to products
+ */
 @GetMapping(value = "/find_by_category")
 public List<Products> findByCategory(@RequestParam String category) {
 return productsService.findByCategory(category);
