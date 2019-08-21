@@ -39,7 +39,7 @@ public List<Products> findAll() {
 return productsService.listAll();
 }
 /**
- * list products to category
+ * list products to category.
  * @param category category
  * @return list to products
  */
