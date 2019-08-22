@@ -59,8 +59,8 @@ public class ProductsController {
    * @param id id product to delete
    */
   @DeleteMapping(value = "/{id}")
-	public void delete(@PathVariable String id) {
-	  productsService.delete(id);
+  public void delete(@PathVariable String id) {
+    productsService.delete(id);
   }
   /**
    * Method found by name.
