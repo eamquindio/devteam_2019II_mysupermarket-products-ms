@@ -57,7 +57,7 @@ public class ProductsService {
     return productRepository.findByName(name);
   }
   /**
-   * Delete a person.
+   * Delete a product.
    *
    * @param id id to delete
    */
