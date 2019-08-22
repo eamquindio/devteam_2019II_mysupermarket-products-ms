@@ -55,13 +55,13 @@ public class ProductsController {
   public void edit(@RequestBody Products product) {
     productsService.update(product);
   }
-	/**
-	 * @param id id product to delete
-	 */
-	@DeleteMapping(value = "/{id}")
+  /**
+   * @param id id product to delete
+   */
+  @DeleteMapping(value = "/{id}")
 	public void delete(@PathVariable String id) {
 	  productsService.delete(id);
-	}
+  }
   /**
    * Method found by name.
    *
