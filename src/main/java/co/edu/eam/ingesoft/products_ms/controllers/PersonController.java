@@ -23,7 +23,7 @@ import co.edu.eam.ingesoft.products_ms.services.PersonService;
  *
  */
 @RestController
-@RequestMapping("api/stores-ms/person")
+@RequestMapping("api/products-ms/person")
 public class PersonController {
 
   /**
@@ -70,7 +70,7 @@ public class PersonController {
    */
   @PutMapping(value = "/")
   public void edit(@RequestBody Person person) {
-    personService.create(person);
+    personService.update(person);
   }
 
   /**
