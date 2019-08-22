@@ -50,8 +50,6 @@ public class ProductsService {
    *
    * @param name name to looking for
    * @return list of products with a name.
-   * Delete a product
-   * @param id id to delete
    */
   public List<Products> findByName(String name) {
     return productRepository.findByName(name);
