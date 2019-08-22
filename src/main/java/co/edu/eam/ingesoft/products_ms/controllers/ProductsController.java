@@ -76,16 +76,16 @@ public class ProductsController {
     return productsService.findByName(name);
   }
 
-/**
-* Metodo que llama al servicio realizado para crear un producto.
-* @author Cristian Sinisterra Rivera.<br/>
-* email: cristiansinisterra@hotmail.com.<br/>
-* Fecha: 6/08/2019<br/>
-* @param products que se desea crear.
-*/
-@PostMapping(value = "/")
-public void create(@RequestBody Products products) {
-productsService.create(products);
-}
+ /**
+ * Metodo que llama al servicio realizado para crear un producto.
+ * @author Cristian Sinisterra Rivera.<br/>
+ * email: cristiansinisterra@hotmail.com.<br/>
+ * Fecha: 6/08/2019<br/>
+ * @param products que se desea crear.
+ */
+  @PostMapping(value = "/")
+  public void create(@RequestBody Products products) {
+    productsService.create(products);
+  }
 
 }
