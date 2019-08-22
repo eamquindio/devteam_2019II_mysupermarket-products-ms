@@ -1,6 +1,9 @@
 package co.edu.eam.ingesoft.productms.test.controllers;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,5 +30,10 @@ public class ProductsControllerTest {
   @Before
   public void beforeEach() {
     productsRepository.deleteAll();
+  }
+
+  @Test
+  public void test() {
+    assertTrue(true);
   }
 }
