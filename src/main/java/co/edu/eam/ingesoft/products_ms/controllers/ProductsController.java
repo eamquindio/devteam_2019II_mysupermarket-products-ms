@@ -14,11 +14,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
+<<<<<<< HEAD
  * REst controller for products entity. Products controller.
  * Products controller.
  * @author caferrerb
  * REst controller for products entity Products controller.
  * Products controller.
+=======
+ * REst controller for products entity Products controller. Products controller.
+ * 
+>>>>>>> [resolves #11] checkstyle
  * @author caferrerb.
  */
 @RestController
@@ -30,10 +35,10 @@ public class ProductsController {
   @Autowired
   private ProductsService productsService;
   /**
- * list all products.
- *
- * @return list of all products.
- */
+   * list all products.
+   *
+   * @return list of all products.
+   */
   @GetMapping(value = "/all")
   public List<Products> findAll() {
     return productsService.listAll();
@@ -41,7 +46,8 @@ public class ProductsController {
   /**
    * list products to category.
    *
-   * @param category category.
+   * @param category
+   *          category.
    * @return list to product.s
    */
 
@@ -52,7 +58,8 @@ public class ProductsController {
   /**
    * Edit a products.
    *
-   * @param product product to edit.
+   * @param product
+   *          product to edit.
    */
   @PutMapping(value = "/")
   public void edit(@RequestBody Products product) {
@@ -67,7 +74,13 @@ public class ProductsController {
   }
   /**
    * Method found by name.
+<<<<<<< HEAD
    * @param name name.
+=======
+   *
+   * @param name
+   *          name.
+>>>>>>> [resolves #11] checkstyle
    * @return list of products.
    */
   @GetMapping(value = "/find_by_name")
@@ -76,13 +89,15 @@ public class ProductsController {
     return productsService.findByName(name);
   }
 
- /**
- * Metodo que llama al servicio realizado para crear un producto.
- * @author Cristian Sinisterra Rivera.<br/>
- * email: cristiansinisterra@hotmail.com.<br/>
- * Fecha: 6/08/2019<br/>
- * @param products que se desea crear.
- */
+  /**
+   * Metodo que llama al servicio realizado para crear un producto.
+   *
+   * @author Cristian Sinisterra Rivera.<br/>
+   *         email: cristiansinisterra@hotmail.com.<br/>
+   *         Fecha: 6/08/2019<br/>
+   * @param products
+   *          que se desea crear.
+   */
   @PostMapping(value = "/")
   public void create(@RequestBody Products products) {
     productsService.create(products);
