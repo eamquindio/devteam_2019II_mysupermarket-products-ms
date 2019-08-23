@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,10 +15,8 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
  * REst controller for products entity. Products controller.
- *
  * Products controller.
- * @author caferrerb
- *
+ * @author caferrerb.
  */
 @RestController
 @RequestMapping("api/products-ms/products")
@@ -29,8 +28,7 @@ public class ProductsController {
   private ProductsService productsService;
   /**
    * list all products.
-   *
-   * @return list of all products
+   * @return list of all products.
    */
   @GetMapping(value = "/all")
   public List<Products> findAll() {
@@ -38,18 +36,18 @@ public class ProductsController {
   }
   /**
    * list products to category.
-   *
-   * @param category category
-   * @return list to products
+   * @param category category.
+   * @return list to product.s
    */
+
   @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
     return productsService.findByCategory(category);
   }
   /**
    * Edit a products.
-   *
-   * @param product product to edit
+   * @param product
+   * product to edit.
    */
   @PutMapping(value = "/")
   public void edit(@RequestBody Products product) {
@@ -64,13 +62,25 @@ public class ProductsController {
   }
   /**
    * Method found by name.
-   *
-   * @param name name
-   * @return list of products
+   * @param name name.
+   * @return list of products.
    */
   @GetMapping(value = "/find_by_name")
   public List<Products> findByName(@RequestParam String name) {
     System.out.println(name);
     return productsService.findByName(name);
   }
+
+  /**
+   * Metodo que llama al servicio realizado para crear un producto.
+   * @author Cristian Sinisterra Rivera.<br/>
+   * email: cristiansinisterra@hotmail.com.<br/>
+   * Fecha: 6/08/2019<br/>
+   * @param products que se desea crear.
+   */
+  @PostMapping(value = "/")
+  public void create(@RequestBody Products products) {
+    productsService.create(products);
+  }
+
 }

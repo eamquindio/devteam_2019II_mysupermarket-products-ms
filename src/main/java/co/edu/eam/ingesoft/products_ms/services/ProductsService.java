@@ -6,11 +6,8 @@ import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 /**
  * Service to perform bussines operations over Products entity.
- *
  * Bussiness class for product Entity.
- *
- * @author caferrerb
- *
+ * @author caferrerb.
  */
 @Service
 public class ProductsService {
@@ -22,7 +19,6 @@ public class ProductsService {
   private ProductsRepository productRepository;
   /**
    * Find all products.
-   *
    * @return list products.
    */
   public List<Products> listAll() {
@@ -30,7 +26,6 @@ public class ProductsService {
   }
   /**
    * Method found by category.
-   *
    * @param category data type String.
    * @return by category the products.
    */
@@ -39,7 +34,6 @@ public class ProductsService {
   }
   /**
    * Update a products.
-   *
    * @param product product to update.
    */
   public void update(Products product) {
@@ -47,19 +41,31 @@ public class ProductsService {
   }
   /**
    * List products by name.
-   *
-   * @param name name to looking for
+   * @param name name to looking for.
    * @return list of products with a name.
    */
   public List<Products> findByName(String name) {
     return productRepository.findByName(name);
   }
+
   /**
    * Delete a product.
-   *
    * @param id id to delete
    */
   public void delete(String id) {
     productRepository.deleteById(id);
   }
+
+  /**
+   * Metodo para crear un producto.
+   * @author Cristian Sinisterra Rivera.<br/>
+   * email: cristiansinisterra@hotmail.com<br/>
+   * Fecha: 6/08/2019<br/>
+   * @param products producto que se desea crear.
+   */
+  public void create(Products products) {
+    productRepository.save(products);
+  }
+
+
 }
