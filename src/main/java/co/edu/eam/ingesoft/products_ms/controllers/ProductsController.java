@@ -36,7 +36,7 @@ public class ProductsController {
   }
   /**
    * list products to category.
-   * @param category.
+   * @param category category.
    * @return list to product.s
    */
 
