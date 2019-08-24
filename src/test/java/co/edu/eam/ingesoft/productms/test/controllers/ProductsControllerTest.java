@@ -116,5 +116,4 @@ private ProductsRepository productsRepository;
     mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isNotFound());
   }
-
 }

@@ -1,4 +1,5 @@
 package co.edu.eam.ingesoft.products_ms.controllers;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,18 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 
 /**
- * REst controller for products entity. Products controller.
- * Products controller.
+ * REst controller for products entity. Products controller. Products
+ * controller.
+ * 
  * @author caferrerb.
  */
 @RestController
 @RequestMapping(Router.PRODUCT_PATH)
 public class ProductsController {
+
   /**
    * products service.
    */
@@ -50,16 +51,37 @@ public class ProductsController {
 
     return products;
   }
-  /**
-   * list products to category.
-   * @param category category.
-   * @return list to product.s
-   */
+  
+	/**
+	 * list all products.
+	 * 
+	 * @return list of all products.
+	 */
+	@GetMapping(value = "/all")
+	public List<Products> findAll() {
+		return productsService.listAll();
+	}
 
-  @GetMapping(value = "/find_by_category")
-  public List<Products> findByCategory(@RequestParam String category) {
-    return productsService.findByCategory(category);
-  }
+	/**
+	 * list products to category.
+	 * 
+	 * @param category category.
+	 * @return list to product.s
+	 */
+
+	@GetMapping(value = "/find_by_category")
+	public List<Products> findByCategory(@RequestParam String category) {
+		return productsService.findByCategory(category);
+	}
+
+	/**
+	 * @param id id product to delete
+	 */
+	@DeleteMapping(value = "/{id}")
+	public void delete(@PathVariable String id) {
+		productsService.delete(id);
+	}
+
   /**
    * Edit a products.
    * @param product product
@@ -70,15 +92,7 @@ public class ProductsController {
     return productsService.update(product);
   }
   /**
-   * @param id id product to delete
-   */
-  @DeleteMapping(value = "/{id}")
-  public void delete(@PathVariable String id) {
-    productsService.delete(id);
-  }
-  /**
    * find a products by name.
-   *
    * @param name name products to find
    * @return list of products with a name
    */
