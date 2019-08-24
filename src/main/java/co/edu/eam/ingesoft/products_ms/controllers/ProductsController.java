@@ -24,6 +24,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 /**
  * REst controller for products entity. Products controller. Products
  * controller.
+ * 
  * @author caferrerb.
  */
 @RestController
@@ -50,15 +51,6 @@ public class ProductsController {
 
     return products;
   }
-  
-	/**
-	 * list all products.
-	 * @return list of all products.
-	 */
-	@GetMapping(value = "/all")
-	public List<Products> findAll() {
-		return productsService.listAll();
-	}
 
 	/**
 	 * list products to category.
