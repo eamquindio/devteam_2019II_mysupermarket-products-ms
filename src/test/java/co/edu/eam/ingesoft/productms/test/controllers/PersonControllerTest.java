@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import co.edu.eam.ingesoft.products_ms.Application;
 import co.edu.eam.ingesoft.products_ms.model.Person;
 import co.edu.eam.ingesoft.products_ms.repositories.PersonRepository;
+import co.edu.eam.ingesoft.products_ms.routes.Router;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,6 +36,13 @@ public class PersonControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
+
+  public static final String FIND_ALL = Router.PERSON_PATH + Router.FIND_ALL;
+  public static final String FIND_BY_NAME = Router.PERSON_PATH + Router.FIND_BY_NAME;
+  public static final String FIND_BY_ID = Router.PERSON_PATH + Router.FIND_PERSON;
+  public static final String SAVE = Router.PERSON_PATH + Router.CREATE_PERSON;
+  public static final String EDIT = Router.PERSON_PATH + Router.EDIT_PERSON;
+  public static final String DELETE = Router.PERSON_PATH + Router.DELETE_PERSON;
 
   @Autowired
   private PersonRepository personRepository;
@@ -49,9 +57,19 @@ public class PersonControllerTest {
 
     personRepository.saveAll(Lists.list(new Person(1, "camilo"), new Person(2, "Claudia")));
 
-    mockMvc.perform(get("/api/products-ms/person/all")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)))
+    mockMvc.perform(get(FIND_ALL)).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)))
         .andExpect(jsonPath("$[0].name", is("camilo"))).andExpect(jsonPath("$[1].name", is("Claudia")));
 
+  }
+
+  @Test
+  public void listAllEmptyTest() throws Exception {
+    mockMvc.perform(get(FIND_ALL)).andExpect(status().isNoContent());
+  }
+
+  @Test
+  public void listByNameEmptyTest() throws Exception {
+    mockMvc.perform(get(FIND_BY_NAME + "?name=camilo")).andExpect(status().isNoContent());
   }
 
   @Test
@@ -59,8 +77,8 @@ public class PersonControllerTest {
 
     personRepository.saveAll(Lists.list(new Person(1, "camilo"), new Person(2, "Claudia")));
 
-    mockMvc.perform(get("/api/products-ms/person/find_by_name?name=camilo")).andExpect(status().isOk())
-        .andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].name", is("camilo")));
+    mockMvc.perform(get(FIND_BY_NAME + "?name=camilo")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)))
+        .andExpect(jsonPath("$[0].name", is("camilo")));
   }
 
   @Test
@@ -68,21 +86,31 @@ public class PersonControllerTest {
 
     personRepository.saveAll(Lists.list(new Person(1, "camilo"), new Person(2, "Claudia")));
 
-    mockMvc.perform(get("/api/products-ms/person/1")).andExpect(status().isOk())
-        .andExpect(jsonPath("$.name", is("camilo")));
+    mockMvc.perform(get(FIND_BY_ID + "/1")).andExpect(status().isOk()).andExpect(jsonPath("$.name", is("camilo")));
+  }
+
+  @Test
+  public void findByIdNotFound() throws Exception {
+    mockMvc.perform(get(FIND_BY_ID + "/1")).andExpect(status().isNotFound());
   }
 
   @Test
   public void save() throws Exception {
     String content = "{\"name\":\"camilo\",\"id\":1 }";
 
-    mockMvc.perform(post("/api/products-ms/person/").content(content).contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk());
+    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
     Person personToAssert = personRepository.findById(new Integer(1)).get();
     assertEquals("camilo", personToAssert.getName());
     assertEquals(new Integer(1), personToAssert.getId());
+  }
 
+  @Test
+  public void saveAlreadyExists() throws Exception {
+    personRepository.saveAll(Lists.list(new Person(1, "camilo"), new Person(2, "Claudia")));
+    String content = "{\"name\":\"camilo\",\"id\":1 }";
+
+    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(409));
   }
 
   @Test
@@ -91,26 +119,36 @@ public class PersonControllerTest {
 
     String content = "{\"name\":\"claudia\",\"id\":1 }";
 
-    mockMvc.perform(put("/api/products-ms/person/").content(content).contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk());
+    mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
     Person personToAssert = personRepository.findById(new Integer(1)).get();
     assertEquals("claudia", personToAssert.getName());
     assertEquals(new Integer(1), personToAssert.getId());
 
   }
-  
+
+  @Test
+  public void editNotExists() throws Exception {
+    String content = "{\"name\":\"claudia\",\"id\":1 }";
+
+    mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isNotFound());
+  }
+
   @Test
   public void del() throws Exception {
     personRepository.saveAll(Lists.list(new Person(1, "camilo")));
 
-
-    mockMvc.perform(delete("/api/products-ms/person/1").contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk());
+    mockMvc.perform(delete(DELETE + "/1").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
     boolean exits = personRepository.findById(new Integer(1)).isPresent();
     assertFalse(exits);
 
+  }
+
+  @Test
+  public void delNotExists() throws Exception {
+    mockMvc.perform(delete(DELETE + "/1").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isNotFound());
   }
 
 }

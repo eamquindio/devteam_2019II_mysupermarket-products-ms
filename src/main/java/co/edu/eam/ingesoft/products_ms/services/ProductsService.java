@@ -1,7 +1,9 @@
 package co.edu.eam.ingesoft.products_ms.services;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 /**
@@ -67,5 +69,13 @@ public class ProductsService {
     productRepository.save(products);
   }
 
-
+  /**
+   * Find a product.
+   *
+   * @param id id to ind the product
+   * @return the product found
+   */
+  public Products find(String id) {
+    return productRepository.findById(id).orElse(null);
+  }
 }
