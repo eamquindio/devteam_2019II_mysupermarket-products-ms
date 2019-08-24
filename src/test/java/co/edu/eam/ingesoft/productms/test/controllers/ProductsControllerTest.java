@@ -47,16 +47,14 @@ private ProductsRepository productsRepository;
 
   @Before
  public void beforeEach() {
-productsRepository.deleteAll();
+   productsRepository.deleteAll();
   }
   @Test
   
   public void listAllTest() throws Exception {
-
-productsRepository.saveAll(Lists.list(new Products("1","Pc",(double) 1200,"Description","Portatil"),new Products("2","Mouse",(double) 100,"Description","G")));
+    productsRepository.saveAll(Lists.list(new Products("1","Pc",(double) 1200,"Description","Portatil"),new Products("2","Mouse",(double) 100,"Description","G")));
     mockMvc.perform(get(FIND_ALL_PRODUCTS)).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)))
         .andExpect(jsonPath("$[0].name", is("Pc"))).andExpect(jsonPath("$[1].name", is("Mouse")));
-
   }
   @Test
   
