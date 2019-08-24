@@ -1,6 +1,10 @@
 package co.edu.eam.ingesoft.products_ms.controllers;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
 
@@ -29,12 +34,20 @@ public class ProductsController {
   @Autowired
   private ProductsService productsService;
   /**
-   * list all products.
-   * @return list of all products.
+   * list all persons.
+   *
+   * @param response httpresponse
+   * @return list of all persons
    */
-  @GetMapping(value = "/all")
-  public List<Products> findAll() {
-    return productsService.listAll();
+  @GetMapping(value = Router.FIND_ALL_PRODUCTS)
+  public List<Products> findAll(HttpServletResponse response) {
+    List<Products> products = productsService.listAll();
+
+    if (products.isEmpty()) {
+      response.setStatus(HttpStatus.NO_CONTENT.value());
+    }
+
+    return products;
   }
   /**
    * list products to category.
