@@ -24,7 +24,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 /**
  * REst controller for products entity. Products controller. Products
  * controller.
- * 
  * @author caferrerb.
  */
 @RestController
@@ -54,7 +53,6 @@ public class ProductsController {
   
 	/**
 	 * list all products.
-	 * 
 	 * @return list of all products.
 	 */
 	@GetMapping(value = "/all")
@@ -64,7 +62,6 @@ public class ProductsController {
 
 	/**
 	 * list products to category.
-	 * 
 	 * @param category category.
 	 * @return list to product.s
 	 */
@@ -104,7 +101,7 @@ public class ProductsController {
     }
     return new ResponseEntity<>(products, HttpStatus.OK);
   }
-
+  
   /**
    * Metodo que llama al servicio realizado para crear un producto.
    * @author Cristian Sinisterra Rivera.<br/>
