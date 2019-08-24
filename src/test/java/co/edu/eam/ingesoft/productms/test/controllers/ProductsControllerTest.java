@@ -5,13 +5,12 @@ import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,14 +35,15 @@ public class ProductsControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
-  public static final String FIND_ALL_PRODUCTS = Router.PRODUCTS_PATH + Router.FIND_ALL_PRODUCTS;
-  public static final String EDIT = Router.PRODUCTS_PATH + Router.EDIT_PRODUCTS;
+  public static final String FIND_ALL_PRODUCTS = Router.PRODUCT_PATH + Router.FIND_ALL_PRODUCTS;
+  public static final String EDIT = Router.PRODUCT_PATH + Router.EDIT_PRODUCTS;
   public static final String SAVE = Router.PRODUCT_PATH + Router.CREATE_PRODUCTS;
 
 
   @Autowired
 private ProductsRepository productsRepository;
 
+  public static final String FIND_BY_NAME = Router.PRODUCT_PATH + Router.FIND_BY_NAME;
   @Before
  public void beforeEach() {
    productsRepository.deleteAll();
@@ -76,7 +76,19 @@ private ProductsRepository productsRepository;
     mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON))
     .andExpect(status().is(409));
   }
+  @Test
+  public void listByNameEmptyTest() throws Exception {
+    mockMvc.perform(get(FIND_BY_NAME + "?name=camilo")).andExpect(status().isNoContent());
+  }
 
+  @Test
+  public void listByName() throws Exception {
+
+	  productsRepository.saveAll(Lists.list(new Products("1", "camilo", (double) 200, "product", "category")));
+
+    mockMvc.perform(get(FIND_BY_NAME + "?name=camilo")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)))
+        .andExpect(jsonPath("$[0].name", is("camilo")));
+  }
   @Test
   public void test() {
     assertTrue(true);

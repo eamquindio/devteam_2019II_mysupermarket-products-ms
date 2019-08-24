@@ -17,12 +17,11 @@ public class Router {
    * person uri.
    */
   public static final String PERSON_PATH = BASE_PATH + "/persons";
-
   /**
-   * person uri.
+   * product uri.
    */
-  public static final String PRODUCTS_PATH = BASE_PATH + "/products";
-
+  public static final String PRODUCT_PATH = BASE_PATH + "/products";
+  
   /**
    * create person uri.
    */
@@ -57,11 +56,6 @@ public class Router {
    * find all person uri.
    */
   public static final String FIND_ALL = "/all";
-
-  /**
-   * product uri.
-   */
-  public static final String PRODUCT_PATH = BASE_PATH + "/products";
 
   /**
    * create products uri.

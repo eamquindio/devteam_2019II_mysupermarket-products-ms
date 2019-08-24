@@ -4,13 +4,18 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +28,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * @author caferrerb.
  */
 @RestController
-@RequestMapping(Router.PRODUCTS_PATH)
+@RequestMapping(Router.PRODUCT_PATH)
 public class ProductsController {
   /**
    * products service.
@@ -72,14 +77,18 @@ public class ProductsController {
     productsService.delete(id);
   }
   /**
-   * Method found by name.
-   * @param name name.
-   * @return list of products.
+   * find a products by name.
+   *
+   * @param name name products to find
+   * @return list of products with a name
    */
-  @GetMapping(value = "/find_by_name")
-  public List<Products> findByName(@RequestParam String name) {
-    System.out.println(name);
-    return productsService.findByName(name);
+  @GetMapping(value = Router.FIND_BY_NAME)
+  public ResponseEntity<List<Products>> findByName(@RequestParam String name) {
+    List<Products> products = productsService.findByName(name);
+    if (products.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    return new ResponseEntity<>(products, HttpStatus.OK);
   }
 
   /**
