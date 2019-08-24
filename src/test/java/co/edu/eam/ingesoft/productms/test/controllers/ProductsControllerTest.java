@@ -1,16 +1,11 @@
 package co.edu.eam.ingesoft.productms.test.controllers;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.assertj.core.util.Lists;
 import org.junit.Before;
@@ -36,10 +31,11 @@ public class ProductsControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
+ 
   public static final String FIND_ALL_PRODUCTS = Router.PRODUCTS_PATH + Router.FIND_ALL_PRODUCTS;
   public static final String EDIT = Router.PRODUCTS_PATH + Router.EDIT_PRODUCTS;
   public static final String SAVE = Router.PRODUCT_PATH + Router.CREATE_PRODUCTS;
-
+  public static final String FIND_BY_CATEGORY = Router.PRODUCT_PATH + Router.FIND_BY_CATEGORY;
 
   @Autowired
 private ProductsRepository productsRepository;
@@ -63,7 +59,7 @@ private ProductsRepository productsRepository;
   @Test
   public void save() throws Exception {
     String content = "{\"name\":\"cafe\",\"price\":\"1000\",\"category\":\"bebida\",\"description\":\"bebida\",\"id\":1 }";
-    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+    mockMvc.perform(get(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     Products productToAssert = productsRepository.findById(new String("1")).get();
     assertEquals("cafe", productToAssert.getName());
     assertEquals(new String("1"), productToAssert.getId());
@@ -73,15 +69,24 @@ private ProductsRepository productsRepository;
   public void saveAlreadyExists() throws Exception {
     productsRepository.saveAll(Lists.list(new Products("1", "cafe", (double) 1000, "bebida", "bebida")));
     String content = "{\"name\":\"cafe\",\"price\":\"1000\",\"category\":\"bebida\",\"description\":\"bebida\",\"id\":1 }";
-    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON))
+    mockMvc.perform(get(SAVE).content(content).contentType(MediaType.APPLICATION_JSON))
     .andExpect(status().is(409));
   }
-
+  
   @Test
-  public void test() {
-    assertTrue(true);
+  public void listByCategoryEmptyTest() throws Exception {
+    mockMvc.perform(get(FIND_BY_CATEGORY + "?category=lacteos")).andExpect(status().isNoContent());
   }
+  
+  @Test
+  public void listByCatgegory() throws Exception {
 
+    productsRepository.saveAll(Lists.list(new Products("1", "leche", (double) 2000, "bebida", "lacteos")));
+
+    mockMvc.perform(get(FIND_BY_CATEGORY + "?category=lacteos")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)))
+        .andExpect(jsonPath("$[0].category", is("lacteos")));
+  }
+  
   @Test
   public void edit() throws Exception {
     productsRepository.saveAll(Lists.list(new Products("1", "camilo", 12.000, "products", "electonic")));

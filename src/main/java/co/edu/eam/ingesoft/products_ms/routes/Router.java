@@ -2,9 +2,7 @@ package co.edu.eam.ingesoft.products_ms.routes;
 
 /**
  * Class to define the service's routes.
- *
  * @author caferrerb
- *
  */
 public class Router {
 
@@ -72,5 +70,9 @@ public class Router {
    * find all products uri.
    */
   public static final String FIND_ALL_PRODUCTS = "/all";
-
+ 
+  /**
+   * find by name products uri.
+   */
+  public static final String FIND_BY_CATEGORY = "/find_by_category";
 }

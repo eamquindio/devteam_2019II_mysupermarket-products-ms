@@ -35,7 +35,7 @@ public class Products implements Serializable {
    */
   private String description;
   /**
-   * category atribute.
+   * Product`s name.
    */
   private String category;
 
