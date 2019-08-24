@@ -70,7 +70,7 @@ public class Router {
    * find all products uri.
    */
   public static final String FIND_ALL_PRODUCTS = "/all";
- 
+
   /**
    * find by name products uri.
    */
