@@ -58,4 +58,9 @@ public class Router {
    */
   public static final String FIND_ALL = "/all";
 
+  /**
+   * find all products uri.
+   */
+  public static final String FIND_ALL_PRODUCTS = "/all";
+
 }
