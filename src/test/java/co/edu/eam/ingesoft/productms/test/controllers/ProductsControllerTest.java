@@ -1,7 +1,4 @@
 package co.edu.eam.ingesoft.productms.test.controllers;
-
-
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -25,9 +22,6 @@ import co.edu.eam.ingesoft.products_ms.Application;
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
-
-
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
