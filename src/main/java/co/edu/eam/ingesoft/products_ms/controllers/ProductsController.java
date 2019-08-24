@@ -24,7 +24,6 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
 /**
  * REst controller for products entity. Products controller. Products
  * controller.
- * 
  * @author caferrerb.
  */
 @RestController
@@ -57,20 +56,19 @@ public class ProductsController {
   * 
   * @return list of all products.
   */
-@GetMapping(value = "/all")
-public List<Products> findAll() {
-		return productsService.listAll();
-}
 
+@GetMapping(value = "/all")
+  public List<Products> findAll() {
+    return productsService.listAll();
+}
 
   /**
   *list products to category.
   *@param category category.
   *@return list to product.s
   */
-
-	@GetMapping(value = "/find_by_category")
-	public List<Products> findByCategory(@RequestParam String category) {
+  @GetMapping(value = "/find_by_category")
+  public List<Products> findByCategory(@RequestParam String category) {
 		return productsService.findByCategory(category);
 	}
 
@@ -83,7 +81,6 @@ public void delete(@PathVariable String id) {
 }
 
   /**
-<<<<<<< HEAD
    * Edit a products.
    * @param product product
    * @return product to edit.
