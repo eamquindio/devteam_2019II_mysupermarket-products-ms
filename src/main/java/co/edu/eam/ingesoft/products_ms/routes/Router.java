@@ -59,6 +59,16 @@ public class Router {
   public static final String FIND_ALL = "/all";
 
   /**
+   * product uri.
+   */
+  public static final String PRODUCT_PATH = BASE_PATH + "/products";
+
+  /**
+   * create products uri.
+   */
+  public static final String CREATE_PRODUCTS = "/";
+
+  /**
    * find all products uri.
    */
   public static final String FIND_ALL_PRODUCTS = "/all";

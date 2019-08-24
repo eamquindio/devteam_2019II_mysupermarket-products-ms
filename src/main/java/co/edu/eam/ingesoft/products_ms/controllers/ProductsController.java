@@ -2,7 +2,6 @@ package co.edu.eam.ingesoft.products_ms.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
@@ -35,7 +32,6 @@ public class ProductsController {
   private ProductsService productsService;
   /**
    * list all persons.
-   *
    * @param response httpresponse
    * @return list of all persons
    */
@@ -93,7 +89,7 @@ public class ProductsController {
    * Fecha: 6/08/2019<br/>
    * @param products que se desea crear.
    */
-  @PostMapping(value = "/")
+  @PostMapping(value = Router.CREATE_PRODUCTS)
   public void create(@RequestBody Products products) {
     productsService.create(products);
   }

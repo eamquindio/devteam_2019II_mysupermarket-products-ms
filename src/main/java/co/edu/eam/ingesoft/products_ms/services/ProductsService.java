@@ -1,19 +1,16 @@
 package co.edu.eam.ingesoft.products_ms.services;
 
 import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
-
+import javax.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import co.edu.eam.ingesoft.products_ms.model.Products;
 import co.edu.eam.ingesoft.products_ms.repositories.ProductsRepository;
 
 /**
- * Service to perform bussines operations over Products entity. Bussiness class
+ * Service to perform bussines operations over Products entity Bussiness class.
  * for product Entity.
- *
  * @author caferrerb.
  */
 @Service
@@ -27,7 +24,6 @@ public class ProductsService {
 
   /**
    * Find all products.
-   *
    * @return list products.
    */
   public List<Products> listAll() {
@@ -36,7 +32,6 @@ public class ProductsService {
 
   /**
    * Method found by category.
-   *
    * @param category data type String.
    * @return by category the products.
    */
@@ -46,9 +41,8 @@ public class ProductsService {
 
   /**
    * Update a products.
-   *
    * @param products products to update.
-   * @return products edited
+   * @return products edited.
    */
   public Products update(Products products) {
     Products productsToUpdate = find(products.getId());
@@ -62,7 +56,6 @@ public class ProductsService {
 
   /**
    * List products by name.
-   *
    * @param name name to looking for.
    * @return list of products with a name.
    */
@@ -72,7 +65,6 @@ public class ProductsService {
 
   /**
    * Delete a product.
-   *
    * @param id id to delete
    */
   public void delete(String id) {
@@ -81,21 +73,25 @@ public class ProductsService {
 
   /**
    * Metodo para crear un producto.
-   *
    * @author Cristian Sinisterra Rivera.<br/>
-   *         email: cristiansinisterra@hotmail.com<br/>
-   *         Fecha: 6/08/2019<br/>
+   * email: cristiansinisterra@hotmail.com<br/>
+   * Fecha: 6/08/2019<br/>
    * @param products producto que se desea crear.
+   * @return la creacion del producto.
    */
-  public void create(Products products) {
-    productRepository.save(products);
+  public Products create(Products products) {
+    Products product = find(products.getId());
+
+    if (product != null) {
+      throw new EntityExistsException("product already exists");
+    }
+    return productRepository.save(products);
   }
 
   /**
    * Find a product.
-   *
-   * @param id id to ind the product
-   * @return the product found
+   * @param id id to ind the product.
+   * @return the product found.
    */
   public Products find(String id) {
     return productRepository.findById(id).orElse(null);
