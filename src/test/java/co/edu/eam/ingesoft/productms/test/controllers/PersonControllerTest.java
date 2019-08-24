@@ -98,7 +98,8 @@ public class PersonControllerTest {
   public void save() throws Exception {
     String content = "{\"name\":\"camilo\",\"id\":1 }";
 
-    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON))
+    .andExpect(status().isOk());
 
     Person personToAssert = personRepository.findById(new Integer(1)).get();
     assertEquals("camilo", personToAssert.getName());
@@ -110,7 +111,8 @@ public class PersonControllerTest {
     personRepository.saveAll(Lists.list(new Person(1, "camilo"), new Person(2, "Claudia")));
     String content = "{\"name\":\"camilo\",\"id\":1 }";
 
-    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(409));
+    mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON))
+    .andExpect(status().is(409));
   }
 
   @Test
