@@ -77,9 +77,10 @@ public class ProductsService {
    * email: cristiansinisterra@hotmail.com<br/>
    * Fecha: 6/08/2019<br/>
    * @param products producto que se desea crear.
+   * @return la creacion del producto.
    */
   public Products create(Products products) {
-    Products product=find(products.getId());
+    Products product = find(products.getId());
 
     if (product != null) {
       throw new EntityExistsException("product already exists");
