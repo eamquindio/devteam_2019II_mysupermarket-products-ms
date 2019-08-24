@@ -89,7 +89,7 @@ public class ProductsController {
    * Fecha: 6/08/2019<br/>
    * @param products que se desea crear.
    */
-  @PostMapping(value = Router.PRODUCT_PATH)
+  @PostMapping(value = Router.CREATE_PRODUCTS)
   public void create(@RequestBody Products products) {
     productsService.create(products);
   }
