@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.productms.test.controllers;
 
 
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -45,7 +46,7 @@ public class ProductsControllerTest {
 private ProductsRepository productsRepository;
 
   @Before
-  public void beforeEach() {
+ public void beforeEach() {
 productsRepository.deleteAll();
   }
   @Test
