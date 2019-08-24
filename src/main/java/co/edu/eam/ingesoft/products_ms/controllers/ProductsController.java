@@ -51,27 +51,39 @@ public class ProductsController {
 
     return products;
   }
+  
+  /**
+  * list all products.
+  * 
+  * @return list of all products.
+  */
+@GetMapping(value = "/all")
+public List<Products> findAll() {
+		return productsService.listAll();
+}
 
-	/**
-	 * list products to category.
-	 * @param category category.
-	 * @return list to product.s
-	 */
+
+  /**
+  *list products to category.
+  *@param category category.
+  *@return list to product.s
+  */
 
 	@GetMapping(value = "/find_by_category")
 	public List<Products> findByCategory(@RequestParam String category) {
 		return productsService.findByCategory(category);
 	}
 
-	/**
-	 * @param id id product to delete
-	 */
-	@DeleteMapping(value = "/{id}")
-	public void delete(@PathVariable String id) {
+  /**
+  * @param id id product to delete
+  */
+@DeleteMapping(value = "/{id}")
+public void delete(@PathVariable String id) {
 		productsService.delete(id);
-	}
+}
 
   /**
+<<<<<<< HEAD
    * Edit a products.
    * @param product product
    * @return product to edit.
