@@ -2,6 +2,9 @@ package co.edu.eam.ingesoft.products_ms.services;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,21 +27,35 @@ public class PersonService {
   private PersonRepository personRespository;
 
   /**
-   * Craete a person.
+   * Craete a personToCreate.
    *
-   * @param person person to create.
+   * @param personToCreate person to create.
+   * @return person created
    */
-  public void create(Person person) {
-    personRespository.save(person);
+  public Person create(Person personToCreate) {
+    Person person = find(personToCreate.getId());
+
+    if (person != null) {
+      throw new EntityExistsException("person already exists");
+    }
+
+    return personRespository.save(personToCreate);
   }
 
   /**
    * Update a person.
    *
    * @param person person to update.
+   * @return person edited
    */
-  public void update(Person person) {
-    personRespository.save(person);
+  public Person update(Person person) {
+    Person personToUpdate = find(person.getId());
+
+    if (personToUpdate == null) {
+      throw new EntityNotFoundException("person not exists");
+    }
+
+    return personRespository.save(person);
   }
 
   /**
@@ -48,16 +65,25 @@ public class PersonService {
    * @return the person found
    */
   public Person find(Integer id) {
-    return personRespository.findById(id).get();
+    return personRespository.findById(id).orElse(null);
   }
 
   /**
    * Delete a person.
    *
    * @param id id to delete
+   * @return person deleted
    */
-  public void delete(Integer id) {
+  public Person delete(Integer id) {
+    Person person = find(id);
+
+    if (person == null) {
+      throw new EntityNotFoundException("person not exists");
+    }
+
     personRespository.deleteById(id);
+
+    return person;
   }
 
   /**
