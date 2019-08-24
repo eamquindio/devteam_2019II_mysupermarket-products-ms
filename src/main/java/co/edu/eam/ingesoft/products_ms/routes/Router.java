@@ -62,7 +62,7 @@ public class Router {
    * product uri.
    */
   public static final String PRODUCT_PATH = BASE_PATH + "/products";
-  
+
   /**
    * create products uri.
    */
