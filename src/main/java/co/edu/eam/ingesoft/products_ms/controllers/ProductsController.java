@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import co.edu.eam.ingesoft.products_ms.model.Products;
+import co.edu.eam.ingesoft.products_ms.routes.Router;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import co.edu.eam.ingesoft.products_ms.services.ProductsService;
@@ -19,7 +21,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * @author caferrerb.
  */
 @RestController
-@RequestMapping("api/products-ms/products")
+@RequestMapping(Router.PRODUCTS_PATH)
 public class ProductsController {
   /**
    * products service.
@@ -46,12 +48,12 @@ public class ProductsController {
   }
   /**
    * Edit a products.
-   * @param product
-   * product to edit.
+   * @param product product
+   * @return product to edit.
    */
-  @PutMapping(value = "/")
-  public void edit(@RequestBody Products product) {
-    productsService.update(product);
+  @PutMapping(value = Router.EDIT_PRODUCTS)
+  public Products edit(@RequestBody Products product) {
+    return productsService.update(product);
   }
   /**
    * @param id id product to delete

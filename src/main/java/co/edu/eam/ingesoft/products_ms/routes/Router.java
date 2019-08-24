@@ -19,6 +19,11 @@ public class Router {
   public static final String PERSON_PATH = BASE_PATH + "/persons";
 
   /**
+   * person uri.
+   */
+  public static final String PRODUCTS_PATH = BASE_PATH + "/products";
+
+  /**
    * create person uri.
    */
   public static final String CREATE_PERSON = "/";
@@ -37,6 +42,11 @@ public class Router {
    * Edit person uri.
    */
   public static final String EDIT_PERSON = "/";
+
+  /**
+   * Edit products uri.
+   */
+  public static final String EDIT_PRODUCTS = "/";
 
   /**
    * find by name persons uri.

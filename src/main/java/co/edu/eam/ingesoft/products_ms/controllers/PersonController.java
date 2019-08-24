@@ -80,7 +80,7 @@ public class PersonController {
   /**
    * Edit a person.
    *
-   * @param person perso to edit
+   * @param person person to edit
    * @return person edited
    */
   @PutMapping(value = Router.EDIT_PERSON)
