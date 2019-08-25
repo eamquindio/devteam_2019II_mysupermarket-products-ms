@@ -50,13 +50,13 @@ public class ProductsController {
 
     return products;
   }
-  /**
+/**
 * list all products.
 * @return list of all products.
 */
-@GetMapping(value = "/all")
+  @GetMapping(value = "/all")
   public List<Products> findAll() {
-return productsService.listAll();
+    return productsService.listAll();
   }
 
   /**
@@ -66,16 +66,16 @@ return productsService.listAll();
   */
   @GetMapping(value = "/find_by_category")
   public List<Products> findByCategory(@RequestParam String category) {
-		return productsService.findByCategory(category);
-	}
+    return productsService.findByCategory(category);
+  }
 
 /**
 * @param id id product to delete
 */
-@DeleteMapping(value = "/{id}")
-public void delete(@PathVariable String id) {
+  @DeleteMapping(value = "/{id}")
+  public void delete(@PathVariable String id) {
     productsService.delete(id);
-}
+  }
 
     /**
   * Edit a products.
@@ -87,15 +87,14 @@ public void delete(@PathVariable String id) {
     return productsService.update(product);
   }
   /**
-   * method find by name
+   * method find by name.
    * @param name name
    * @return list to find by name
    */
   @GetMapping(value = Router.FIND_BY_NAME)
 public ResponseEntity<List<Products>> findByName(@RequestParam String name) {
     List<Products> products = productsService.findByName(name);
-    
-  if (products.isEmpty()) {
+    if (products.isEmpty()) {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     return new ResponseEntity<>(products, HttpStatus.OK);
