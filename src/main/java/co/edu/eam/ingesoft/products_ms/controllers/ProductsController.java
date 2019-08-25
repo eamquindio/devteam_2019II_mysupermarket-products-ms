@@ -50,14 +50,6 @@ public class ProductsController {
 
     return products;
   }
-  /**
-  * list all products.
-  * @return list of all products.
-  */
-  @GetMapping(value = "/all")
-  public List<Products> findAll() {
-    return productsService.listAll();
-  }
 
   /**
   *list products to category.
