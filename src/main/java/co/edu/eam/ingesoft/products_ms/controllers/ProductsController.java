@@ -89,15 +89,11 @@ public void delete(@PathVariable String id) {
   public Products edit(@RequestBody Products product) {
     return productsService.update(product);
   }
-  /**
-   * find a products by name.
-   * @param name name products to find
-   * @return list of products with a name
-   */
+  
   @GetMapping(value = Router.FIND_BY_NAME)
-  public ResponseEntity<List<Products>> findByName(@RequestParam String name) {
+public ResponseEntity<List<Products>> findByName(@RequestParam String name) {
     List<Products> products = productsService.findByName(name);
-    if (products.isEmpty()) {
+  if (products.isEmpty()) {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     return new ResponseEntity<>(products, HttpStatus.OK);
