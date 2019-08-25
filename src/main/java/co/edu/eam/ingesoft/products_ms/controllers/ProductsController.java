@@ -50,10 +50,10 @@ public class ProductsController {
 
     return products;
   }
-/**
-* list all products.
-* @return list of all products.
-*/
+  /**
+  * list all products.
+  * @return list of all products.
+  */
   @GetMapping(value = "/all")
   public List<Products> findAll() {
     return productsService.listAll();
@@ -69,19 +69,19 @@ public class ProductsController {
     return productsService.findByCategory(category);
   }
 
-/**
-* @param id id product to delete
-*/
+  /**
+  * @param id id product to delete
+  */
   @DeleteMapping(value = "/{id}")
   public void delete(@PathVariable String id) {
     productsService.delete(id);
   }
 
-    /**
+  /**
   * Edit a products.
   * @param product product
   * @return product to edit.
-    */
+  */
   @PutMapping(value = Router.EDIT_PRODUCTS)
   public Products edit(@RequestBody Products product) {
     return productsService.update(product);
