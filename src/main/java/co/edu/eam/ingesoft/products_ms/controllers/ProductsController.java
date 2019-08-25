@@ -50,17 +50,14 @@ public class ProductsController {
 
     return products;
   }
-  
   /**
-  * list all products.
-  * 
-  * @return list of all products.
-  */
-
+* list all products.
+* @return list of all products.
+*/
 @GetMapping(value = "/all")
   public List<Products> findAll() {
-    return productsService.listAll();
-}
+return productsService.listAll();
+  }
 
   /**
   *list products to category.
@@ -72,33 +69,37 @@ public class ProductsController {
 		return productsService.findByCategory(category);
 	}
 
-  /**
-  * @param id id product to delete
-  */
+/**
+* @param id id product to delete
+*/
 @DeleteMapping(value = "/{id}")
 public void delete(@PathVariable String id) {
-		productsService.delete(id);
+    productsService.delete(id);
 }
 
-  /**
-   * Edit a products.
-   * @param product product
-   * @return product to edit.
-   */
+    /**
+  * Edit a products.
+  * @param product product
+  * @return product to edit.
+    */
   @PutMapping(value = Router.EDIT_PRODUCTS)
   public Products edit(@RequestBody Products product) {
     return productsService.update(product);
   }
-  
+  /**
+   * method find by name
+   * @param name name
+   * @return list to find by name
+   */
   @GetMapping(value = Router.FIND_BY_NAME)
 public ResponseEntity<List<Products>> findByName(@RequestParam String name) {
     List<Products> products = productsService.findByName(name);
+    
   if (products.isEmpty()) {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     return new ResponseEntity<>(products, HttpStatus.OK);
   }
-  
   /**
    * Metodo que llama al servicio realizado para crear un producto.
    * @author Cristian Sinisterra Rivera.<br/>
