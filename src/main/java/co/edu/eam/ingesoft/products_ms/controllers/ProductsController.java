@@ -1,9 +1,9 @@
 package co.edu.eam.ingesoft.products_ms.controllers;
 import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +23,7 @@ import co.edu.eam.ingesoft.products_ms.services.ProductsService;
  * @author caferrerb.
  */
 @RestController
-@RequestMapping(Router.PRODUCTS_PATH)
+@RequestMapping(Router.PRODUCT_PATH)
 public class ProductsController {
   /**
    * products service.
@@ -50,10 +50,16 @@ public class ProductsController {
    * @param category category.
    * @return list to product.s
    */
+  @GetMapping(value = Router.FIND_BY_CATEGORY)
+  public ResponseEntity<List<Products>> findByCategory(@RequestParam String category) {
+    productsService.findByCategory(category);
+    List<Products> products = productsService.findByCategory(category);
 
-  @GetMapping(value = "/find_by_category")
-  public List<Products> findByCategory(@RequestParam String category) {
-    return productsService.findByCategory(category);
+    if (products.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    return new ResponseEntity<>(products, HttpStatus.OK);
   }
   /**
    * Edit a products.
@@ -93,5 +99,4 @@ public class ProductsController {
   public void create(@RequestBody Products products) {
     productsService.create(products);
   }
-
 }
